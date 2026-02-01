@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffe6ee;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.page {
+  display: none;
+  padding: 20px;
+}
+
+.page.active {
+  display: block;
+}
+
+h1 {
+  color: #d81b60;
+}
+
+img {
+  width: 250px;
+  margin: 20px 0;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.yes {
+  background-color: #ff4081;
+  color: white;
+}
+
+.no {
+  background-color: #9e9e9e;
+  color: white;
+  position: relative;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>Will you be my Valentine? 💖</h1>
+  <img src="https://media.tenor.com/nnLBBnI5lOvAAAAC/love.gif">
+  <br>
+  <button class="yes" onclick="goTo('last')">Yes</button>
+  <button class="no" onclick="goTo('page2')">No</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h1>Please think again 🥺</h1>
+  <img src="" alt="GIF here">
+  <br>
+  <button class="yes" onclick="goTo('last')">Yes</button>
+  <button class="no" onclick="goTo('page3')">No</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <h1>Babe itna bhi bhav mat khao 😤</h1>
+  <img src="" alt="GIF here">
+  <br>
+  <button class="yes" onclick="goTo('last')">Yes</button>
+  <button class="no" id="runaway">No</button>
+</div>
+
+<!-- LAST PAGE -->
+<div class="page" id="last">
+  <h1>I know you love me ❤️</h1>
+  <img src="" alt="Final GIF">
+</div>
+
+<script>
+function goTo(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+}
+
+const noBtn = document.getElementById("runaway");
+
+if (noBtn) {
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
+</script>
+
+</body>
+</html>
