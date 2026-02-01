@@ -23,8 +23,26 @@ body {
   background-repeat: no-repeat;
 }
 
+/* ACTIVE PAGE WITH ANIMATION */
 .page.active {
   display: block;
+  animation: slideDownBounce 0.8s ease-out;
+}
+
+/* SLIDE DOWN + BOUNCE */
+@keyframes slideDownBounce {
+  0% {
+    transform: translateY(-100%);
+  }
+  70% {
+    transform: translateY(10%);
+  }
+  85% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 h1 {
@@ -79,7 +97,7 @@ button {
 <body>
 
 <!-- PAGE 1 -->
-<div class="page active" id="page1" style="background-image:url('bj1.jpg')">
+<div class="page active" id="page1" style="background-image:url('bg11.jpg')">
   <h1>Will you be my Valentine? 💖</h1>
   <img src="gif1.gif">
   <br>
@@ -98,7 +116,7 @@ button {
 
 <!-- PAGE 3 -->
 <div class="page" id="page3" style="background-image:url('bg3.jpg')">
-  <h1>Evdha pan nako bhav khau ga 😤</h1>
+  <h1>Evdha bhav pan nako khau ga 😤</h1>
   <img src="gif3.gif">
   <br>
   <button class="yes" onclick="goTo('last')">Yes</button>
@@ -107,7 +125,7 @@ button {
 
 <!-- LAST PAGE -->
 <div class="page" id="last" style="background-image:url('bg4.jpg')">
-  <h1>Happy Valentine's Day Mrunali ❤️</h1>
+  <h1>I know you love me ❤️</h1>
   <img src="final.gif">
 
   <audio id="loveSong" autoplay loop>
@@ -119,7 +137,8 @@ button {
 /* PAGE NAVIGATION */
 function goTo(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(pageId).classList.add('active');
+  const nextPage = document.getElementById(pageId);
+  nextPage.classList.add('active');
 
   if (pageId === 'last') {
     startFloatingHearts();
